@@ -1,0 +1,34 @@
+From: admin@hms.local
+To: mohitkumarpradhan1234567@gmail.com
+Subject: Admin Report Copy for GD (ID: 3)
+
+Dear Patient,
+
+        
+    This is an admin copy of a generated patient report.
+
+    Included summary:
+    - Personal and medical information
+    - Caretaker and contact details
+    - Hospital stay information
+    - Medical checkup results
+    - Billing details
+    
+
+        
+
+        Patient Details:
+        Name: GD
+        Date of Birth: 2026-03-05
+        Phone: 07970880676
+        Email: mohitkumarpradhan1234567@gmail.com
+
+        
+
+        Generated on: 2026-03-13 14:37:28
+
+        Thank you for choosing our healthcare services.
+        For any questions, please contact our support team.
+
+        Best regards,
+        Health Management System

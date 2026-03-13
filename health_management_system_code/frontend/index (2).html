@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Health Management System</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A comprehensive health management system for tracking vitals, symptoms, medications, and appointments.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+      <div class="login-container">
+        <h1>Health Management System</h1>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="primary">Login</button>
+        </form>
+        <div id="loginMessage"></div>
+        <div class="login-footer">
+          <small>Demo credentials: mohit@example.com / password</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main App (hidden initially) -->
+    <div id="mainApp" style="display: none;">
+      <aside class="sidebar" id="sidebar">
+        <nav class="nav" id="nav">
+          <button data-page="dashboard" class="active">📊 Dashboard</button>
+          <button data-page="patients">👥 Patients</button>
+          <button data-page="checkups">🩺 Checkups</button>
+          <button data-page="hospitality">🏥 Hospitality</button>
+          <button data-page="bills">💰 Bills</button>
+          <button data-page="vitals">❤️ Vitals</button>
+          <button data-page="symptoms">🤒 Symptoms</button>
+          <button data-page="meds">💊 Medications</button>
+          <button data-page="appts">📅 Appointments</button>
+          <button data-page="reports">📄 Reports</button>
+        </nav>
+      </aside>
+      <div class="main-content">
+        <header>
+          <button class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
+          <h1>Health Management System</h1>
+          <button id="logoutBtn" class="secondary">Logout</button>
+        </header>
+        <main id="main">
+          <!-- Content injected by app.js -->
+        </main>
+        <footer>
+          <small>Health Management System — Local Demo</small>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for confirmations -->
+  <div class="modal" id="modal" style="display: none;">
+    <div class="modal-content">
+      <h3 id="modalTitle">Confirm Action</h3>
+      <p id="modalMessage">Are you sure you want to proceed?</p>
+      <div class="modal-actions">
+        <button class="secondary" id="modalCancel">Cancel</button>
+        <button class="primary" id="modalConfirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

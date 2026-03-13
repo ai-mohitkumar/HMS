@@ -1,0 +1,44 @@
+From: admin@hms.local
+To: test@example.com, mohitkumarpradhan1234567@gmail.com
+Subject: Health Report for Test Patient
+
+Dear Patient,
+
+        
+    Please find your comprehensive health report attached.
+
+    This report includes:
+    - Your personal and medical information
+    - Caretaker/Family contact details
+    - Hospital stay information
+    - Medical checkup results
+    - Billing details and statements
+
+    Please review this information carefully. If you have any questions or concerns,
+    please contact our healthcare team.
+    
+
+        Recent Checkup Results:
+        
+
+        
+
+        Patient Details:
+        Name: Test Patient
+        Date of Birth: 1990-01-01
+        Phone: 1234567890
+        Email: test@example.com
+
+        
+
+        Admin Copy:
+        A copy of this email was also sent to mohitkumarpradhan1234567@gmail.com.
+        
+
+        Generated on: 2026-03-13 10:38:05
+
+        Thank you for choosing our healthcare services.
+        For any questions, please contact our support team.
+
+        Best regards,
+        Health Management System

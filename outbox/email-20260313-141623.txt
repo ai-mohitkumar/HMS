@@ -1,0 +1,34 @@
+From: admin@hms.local
+To: mohitkumarpradhan1234567@gmail.com
+Subject: Admin Report Copy for Test Patient (ID: 1)
+
+Dear Patient,
+
+        
+    This is an admin copy of a generated patient report.
+
+    Included summary:
+    - Personal and medical information
+    - Caretaker and contact details
+    - Hospital stay information
+    - Medical checkup results
+    - Billing details
+    
+
+        
+
+        Patient Details:
+        Name: Test Patient
+        Date of Birth: 1990-01-01
+        Phone: 1234567890
+        Email: test@example.com
+
+        
+
+        Generated on: 2026-03-13 14:16:23
+
+        Thank you for choosing our healthcare services.
+        For any questions, please contact our support team.
+
+        Best regards,
+        Health Management System

@@ -1,0 +1,80 @@
+/* Login Styles */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  padding: 16px;
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-card h2 {
+  margin: 0 0 12px 0;
+  color: #4f46e5;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.login-card p {
+  margin: 0 0 16px 0;
+  color: #6b7280;
+}
+
+.login-card .form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e6edf3;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.login-card .primary {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.login-card .secondary {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Mobile Login */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 12px;
+  }
+
+  .login-card {
+    padding: 16px;
+  }
+}

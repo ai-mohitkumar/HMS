@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Health Management System</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Professional Health Management System for hospitals and clinics">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Professional Login Screen -->
+    <div id="loginScreen" class="login-screen">
+      <div class="login-wrapper">
+        <div class="login-brand">
+          <div class="brand-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h1>Health Management System</h1>
+          <p class="tagline">Professional Healthcare Dashboard</p>
+        </div>
+        
+        <div class="login-container">
+          <div class="login-header">
+            <h2>Welcome Back</h2>
+            <p>Sign in to access your healthcare dashboard</p>
+          </div>
+          
+          <form id="loginForm">
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="loginPassword" name="password" placeholder="Password (optional)" value="demo123">
+            </div>
+            <button type="submit" class="login-btn">
+              <span>Sign In</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+          
+          <div id="loginMessage"></div>
+          
+          <div class="quick-login">
+            <p>Quick Access</p>
+            <div class="quick-buttons">
+              <button class="quick-btn" onclick="quickLogin('user')">
+                <i class="fas fa-user"></i>
+                <span>User</span>
+              </button>
+              <button class="quick-btn" onclick="quickLogin('admin')">
+                <i class="fas fa-user-shield"></i>
+                <span>Admin</span>
+              </button>
+              <button class="quick-btn" onclick="quickLogin('doctor')">
+                <i class="fas fa-user-md"></i>
+                <span>Doctor</span>
+              </button>
+              <button class="quick-btn" onclick="quickLogin('staff')">
+                <i class="fas fa-user-nurse"></i>
+                <span>Staff</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="login-footer">
+            <small>© 2024 Health Management System</small>
+          </div>
+        </div>
+        
+        <div class="login-features">
+          <div class="feature">
+            <i class="fas fa-users"></i>
+            <h3>Patient Management</h3>
+            <p>Comprehensive patient records and history</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Appointments</h3>
+            <p>Smart scheduling and reminders</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-file-medical-alt"></i>
+            <h3>Medical Reports</h3>
+            <p>Generate and manage health reports</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="login-background">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+      </div>
+    </div>
+
+    <!-- Main App (hidden initially) -->
+    <div id="mainApp" style="display: none;">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <span>HMS</span>
+          </div>
+        </div>
+        <nav class="nav" id="nav">
+          <button data-page="dashboard" class="active">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+          </button>
+          <button data-page="patients" data-admin-only="true">
+            <i class="fas fa-users"></i>
+            <span>Patients</span>
+          </button>
+          <button data-page="checkups" data-admin-only="true">
+            <i class="fas fa-stethoscope"></i>
+            <span>Checkups</span>
+          </button>
+          <button data-page="hospitality" data-admin-only="true">
+            <i class="fas fa-hospital"></i>
+            <span>Hospitality</span>
+          </button>
+          <button data-page="bills" data-admin-only="true">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>Bills</span>
+          </button>
+          <button data-page="vitals">
+            <i class="fas fa-heart"></i>
+            <span>Vitals</span>
+          </button>
+          <button data-page="symptoms">
+            <i class="fas fa-thermometer-half"></i>
+            <span>Symptoms</span>
+          </button>
+          <button data-page="meds">
+            <i class="fas fa-pills"></i>
+            <span>Medications</span>
+          </button>
+          <button data-page="appts">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Appointments</span>
+          </button>
+          <button data-page="reports">
+            <i class="fas fa-file-alt"></i>
+            <span>Reports</span>
+          </button>
+          <button data-page="healthgraph" data-admin-only="true">
+            <i class="fas fa-chart-pie"></i>
+            <span>Health Graph</span>
+          </button>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logoutBtn" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </aside>
+      <div class="main-content">
+        <header>
+          <button class="mobile-nav-toggle" id="mobileNavToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="header-title">
+            <h1>Health Management System</h1>
+            <span class="header-subtitle" id="currentDate"></span>
+          </div>
+          <div class="header-actions">
+            <div class="display-scale-control">
+              <label for="displayScale">Size</label>
+              <select id="displayScale" aria-label="Resize HMS interface">
+                <option value="0.9">90%</option>
+                <option value="1" selected>100%</option>
+                <option value="1.1">110%</option>
+                <option value="1.25">125%</option>
+                <option value="1.4">140%</option>
+              </select>
+            </div>
+            <button class="header-btn" onclick="refreshData()">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+            <div class="user-profile">
+              <div class="user-avatar">
+                <img id="adminPhotoHeader" src="admin-photo.jpg?v=3" alt="Admin photo">
+              </div>
+              <span class="user-name" id="userName">Admin</span>
+            </div>
+          </div>
+        </header>
+        <main id="main">
+          <!-- Content injected by app.js -->
+        </main>
+        <footer>
+          <small>Health Management System — Professional Dashboard</small>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for confirmations -->
+  <div class="modal" id="modal" style="display: none;">
+    <div class="modal-content">
+      <h3 id="modalTitle">Confirm Action</h3>
+      <p id="modalMessage">Are you sure you want to proceed?</p>
+      <div class="modal-actions">
+        <button class="secondary" id="modalCancel">Cancel</button>
+        <button class="primary" id="modalConfirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <div class="picker-overlay" id="pickerOverlay" style="display: none;">
+    <div class="picker-panel">
+      <div class="picker-header">
+        <h3 id="pickerTitle">Select</h3>
+        <button type="button" class="picker-close" id="pickerClose">Close</button>
+      </div>
+      <div class="picker-body" id="pickerBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
