@@ -176,6 +176,10 @@ def get_local_ip():
         sock.close()
 
 
+def is_cloud_runtime():
+    return bool(os.environ.get("RAILWAY_ENVIRONMENT") or os.environ.get("PORT"))
+
+
 @app.route("/")
 def serve_index():
     return send_from_directory(BASE_DIR, "index.html")
@@ -980,9 +984,16 @@ def create_diet_meal_endpoint(plan_id):
 
 if __name__ == "__main__":
     ensure_demo_user()
-    local_ip = get_local_ip()
-    print(f"Local device link: http://127.0.0.1:5000/")
-    print(f"Same Wi-Fi link:   http://{local_ip}:5000/")
-    if os.environ.get("WERKZEUG_RUN_MAIN") != "true":
-        threading.Timer(1.0, lambda: webbrowser.open("http://127.0.0.1:5000/")).start()
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", "5000"))
+    debug_mode = os.environ.get("FLASK_DEBUG", "1") == "1" and not is_cloud_runtime()
+
+    if is_cloud_runtime():
+        print(f"Cloud service listening on port {port}")
+    else:
+        local_ip = get_local_ip()
+        print(f"Local device link: http://127.0.0.1:{port}/")
+        print(f"Same Wi-Fi link:   http://{local_ip}:{port}/")
+        if os.environ.get("WERKZEUG_RUN_MAIN") != "true":
+            threading.Timer(1.0, lambda: webbrowser.open(f"http://127.0.0.1:{port}/")).start()
+
+    app.run(debug=debug_mode, host="0.0.0.0", port=port)

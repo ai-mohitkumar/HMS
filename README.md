@@ -155,6 +155,18 @@ For full details, see the code in `app.py`.
 
 ## Production Deployment
 
+### Railway
+1. Push the repository to GitHub.
+2. Create a new Railway project and choose `Deploy from GitHub repo`.
+3. Select this repository and deploy.
+4. Railway will install `requirements.txt` and use `railway.json` to start:
+   ```bash
+   gunicorn app:app --bind 0.0.0.0:$PORT
+   ```
+5. After the service is live, open the Railway project and generate a public domain.
+
+Note: this project currently stores data in `hms.db` (SQLite). On Railway, local disk is ephemeral, so database changes can be lost on redeploy or restart. For permanent public use, move the database to PostgreSQL.
+
 ### Using Gunicorn
 1. Install Gunicorn:
    ```bash
